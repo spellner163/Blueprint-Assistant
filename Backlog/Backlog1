@@ -1,0 +1,135 @@
+# Blueprint Product Backlog & Prioritization Framework
+
+## Current Three-Fold Prioritization Focus
+
+### 1. PowerFX Expression Language Upgrade
+**Initial Vision:** Upgrade expression language in Power Automate Desktop to utilize PowerFX for better functionality
+
+**Investigation Results:** 
+- PowerFX appears "shoehorned" into PAD without cohesion with existing actions
+- **Critical Limitation:** Standard PAD data table actions don't interact properly with PowerFX expressions
+- PowerFX treats PAD data tables as custom objects rather than native data tables
+- **Impact:** Functionality failures in basic use cases
+
+**Current Status:** Likely to be reduced in priority based on technical limitations discovered
+
+**Decision Framework:** Technical investigation revealed fundamental integration issues that limit practical value
+
+### 2. AI Feature Portfolio Evaluation
+
+Two AI features under consideration, both with mixed market validation:
+
+#### 2A. Agentic AI Middleware ("Add to Agent" Feature)
+**Concept:** Automatically convert RPA processes into agent tools with context and utterances
+
+**Technical Approach:**
+- Target: Microsoft Copilot initially  
+- Expansion capability: HTTP request triggers + Power Automate cloud for other agent platforms
+- Handles: Context generation, utterance creation, agent integration automatically
+
+**Market Response:** **Lower interest than expected**
+- Enterprise customers show limited enthusiasm
+- Positioning challenge: May not solve significant customer pain point
+
+#### 2B. AI Candidate Analysis Extension (Assess Analytics Enhancement)  
+**Concept:** Grade PAD components (subflows, code segments) for AI agent suitability, specifically human-in-the-loop scenarios
+
+**Technical Challenge:** Identifying where human-in-the-loop exists in RPA processes
+**Target Analysis:** Subflows and code snippets rather than entire flows
+
+**Market Response:** **Higher interest from target segments**
+- Enterprise customers cite as "much more interesting" than middleware approach
+- **SI Partner Feedback:** Manual hookup "not that much work" but analysis "could save lots of time/effort and help profitability" 
+- **Value Proposition:** Help identify what's worth moving vs. comprehensive migration
+
+## Market Validation Insights
+
+### Customer Feedback Patterns
+**Middleware Feature:** Solves a problem that may not be painful enough to pay for
+**Analysis Feature:** Addresses real business optimization need (time/effort savings, profitability improvement)
+
+### SI Partner Perspectives
+- Manual integration work is manageable 
+- **High value in decision support:** What should we move vs. what should we keep?
+- Profitability impact more compelling than convenience features
+
+## Strategic Decision Considerations
+
+### Evidence-Based Prioritization Challenges
+**Current State:** Neither AI feature has compelling evidence for strong market demand
+**Risk:** Building AI features that look innovative but don't solve real problems
+**Philosophy Alignment:** "Clarity over confusion" - avoid "fluffy" AI features
+
+### Resource Allocation Framework
+**Competing Priorities:** PowerFX investigation, two AI features, existing product maintenance
+**Evidence Threshold:** What level of customer validation required before committing engineering resources?
+**Market Timing:** Balance between being early to AI opportunities vs. building proven value
+
+## Strategic Analysis: Business Model vs Technical Feasibility
+
+### Customer Segmentation Insights
+**Middleware Feature (Low Market Interest):**
+- **Target Market:** End clients (historically not Blueprint's customer base)
+- **Business Challenge:** Would require new market entry and sales channel development
+- **Development Status:** Already built to significant degree, minimal additional work needed
+
+**Analytics Feature (Higher SI Interest):**
+- **Target Market:** Service Integrators (Blueprint's existing customer base and relationships)
+- **Business Advantage:** Leverages existing sales channels and customer relationships
+- **Development Challenge:** Conservative estimate of "many months of work" with technical uncertainty
+
+### Technical Feasibility Research Needs
+
+**Human-in-the-Loop Detection Challenge:**
+Current hypothesis requires validation of two potential scenarios:
+
+**Scenario 1: Explicit Human Interaction Actions (Potentially Detectable)**
+- **Examples:** Message input boxes, dialog interactions where user must provide input mid-process
+- **Technical Feasibility:** Could potentially identify these through action analysis
+- **Market Reality:** Sean's assessment suggests this is "extremely rare" in actual RPA development
+
+**Scenario 2: Implicit Process Handoffs (Likely Undetectable)**
+- **Pattern:** Bot runs to completion → human takes over → second bot runs
+- **Technical Challenge:** No explicit markers in code indicating handoff points
+- **Detection Difficulty:** "Borderline impossible" - requires inferring business logic intent
+- **Market Reality:** Believed to be much more common approach
+
+**Key Research Question:** Which scenario represents actual market patterns in human-in-the-loop RPA?
+
+**Critical Insight:** If only explicit interactions are detectable, and these are "extremely rare," the feature may not provide sufficient value to justify months of engineering investment.
+
+**Research Approaches Considered:**
+1. **Pattern analysis on existing migrations** - Analyze Blueprint's migration database for frequency of explicit human interaction actions
+2. **SI partner interviews** - Direct customer research on human-in-the-loop design patterns  
+3. **Technical feasibility spike** - 1-2 week developer investigation on detection approaches using real customer code samples
+
+**Current Assessment:** Analytics feature likely not viable if limited to rare explicit interaction scenarios
+
+### Strategic Inflection Point Analysis
+
+**Product Maturity Context:**
+- **Migration Platform:** Core functionality complete, focus shifts to optimization and maintenance
+- **Market Position:** Strong SI relationships established
+- **Resource Allocation:** 1-2 developers available for experimental features per release
+
+**Strategic Direction Options:**
+1. **Market Expansion:** Leverage existing middleware capability to target direct enterprise customers (new market segment)
+2. **Relationship Deepening:** Focus experimental resources on Assess enhancements or Migration optimizations for existing SI customers
+3. **Feature Innovation:** Continue pursuing AI capabilities despite mixed market validation
+
+**Decision Framework Considerations:**
+- **Technical feasibility must precede major resource commitment**
+- **Business model alignment (SI focus) vs. technical complexity trade-offs**  
+- **Core platform maturity creates opportunity for strategic pivots**
+- **Limited engineering capacity requires high-conviction feature bets**
+
+## Next Steps for Backlog Prioritization
+
+**Immediate Actions:**
+1. **PowerFX Decision:** Finalize priority reduction based on integration limitations
+2. **Human-in-the-Loop Research:** Validate technical feasibility before analytics feature commitment
+3. **Strategic Direction Assessment:** Market expansion vs. existing relationship deepening
+
+**Future Reference:**
+- **Analytics Feature:** Maintain as potential future opportunity pending technical research outcomes
+- **Middleware Capability:** Consider market expansion applications with existing SI customer introduction model
