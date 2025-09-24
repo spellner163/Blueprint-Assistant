@@ -1,0 +1,189 @@
+ # Blueprint Technical Architecture & Platform Reference
+
+## System Architecture Overview
+
+### 3-Tier Distributed Architecture
+Blueprint operates on a minimum 3-server distributed architecture (not monolithic or microservices):
+
+#### Web Server Layer
+- **Dual Application Pools in IIS:**
+  - Public Blueprint: Handles internet connections
+  - Blueprint Auxiliary Services: Internal operations
+- **Handles:** Synchronous operations (search, file download/upload, login)
+- **Deployment:** Every customer gets both sites and underlying services
+
+#### Database Server Layer
+- **Technology:** SQL Server cluster
+- **Function:** Data storage and retrieval for all operations
+
+#### Job Server Layer
+- **Purpose:** Asynchronous work processing (30 seconds to 30 minutes)
+- **Contains modules for:** Import/export, document generation, image rendering, diagram creation
+- **Visibility:** All work on jobs page processed here
+- **Customer Isolation:** Dedicated application pools, sites, job services, database connections per customer
+
+## Infrastructure Strategy
+
+### Production Environment - Rackspace
+- **Configuration:** Dedicated servers with full server racks, firewalls, load balancers
+- **Positioning:** "Private cloud" for enterprise sales
+- **Benefits:**
+  - Windows patching through automated system
+  - Support for server issues
+  - Database admin services at $300/hour
+  - Granular scaling (add 2 cores or 4GB RAM individually)
+  - Prevents AWS cost doubling at resource thresholds
+
+### Development Environment - AWS
+- **Use Cases:** Public cloud for development work
+- **Advantages:** Development significantly easier and cheaper, can scale 3 more dev sites in 10 minutes
+- **Sites:** Internal environments (Dev 1-4, QA), Perf stack for pre-release builds
+- **Risk Management:** Memory leaks in untested builds won't impact production
+
+### Deployment Strategy
+- **Production Rule:** Customer/partner sites always go to Rackspace
+- **Development Rule:** Pre-release builds on AWS for risk isolation
+- **Compliance:** Contractual/security audit requirements keep production separate from dev/test/staging
+
+## Communication Patterns & Data Flow
+
+### Inter-Server Communication (Network)
+- Web servers ↔ Job servers: API calls/network protocols
+- All servers ↔ Database: Database connection protocols
+- Job servers ↔ Microsoft APIs: REST API calls
+
+### Intra-Server Communication (Internal)
+- Modules within servers: Internal function calls (no network overhead)
+
+### Migration Process Flow
+1. **Web server** receives RPA file upload → queues job for job server
+2. **Job server import module** validates and parses RPA file → stores raw data in database
+3. **Job server processing module** converts RPA format to Common Object Model → stores COM data
+4. **Job server export module** converts COM to Power Automate Desktop → sends to Microsoft APIs/exports file → updates database
+5. **Web server** displays results to user from database
+
+## Common Object Model (COM) Architecture
+
+### Purpose & Function
+- **Hub-and-spoke architecture** for RPA platform translation
+- Converts all supported RPA formats (UiPath, Blue Prism, A360) to Blueprint proprietary language
+- Single export target: Power Automate Desktop
+
+### Data Structure
+- **Dual-layer approach:**
+  - Raw parameters tab: Complete action and all code from source tool
+  - Parsed parameter-level information for each action
+- **Design philosophy:** Prefer blank parameters over missing critical data
+
+### Scalability Benefits
+- Adding new RPA tool requires only one new parser
+- Microsoft API updates benefit all source tools simultaneously
+- Consistent migration quality across all platforms
+- Single source of truth for all migrations
+
+## Major Technical Challenges & Solutions
+
+### Variable Scoping Incompatibility
+**Problem:** Power Automate Desktop treats all variables as global scope while source platforms use limited scope
+**Technical Solution:** Prefixed variables mimicking scoped behavior
+- Methodology: First letter of subflow name + underscore + variable name (e.g., "S_variable_name")
+- Impact: 100-200% code increase, functionally correct but creates "garbage code"
+**Strategic Solution:** Influenced Microsoft to add native variable scoping to roadmap
+
+### Linearity Constraints (GoTo Implementation)
+**Problem:** PAD enforced linear workflows; Blue Prism/UiPath support non-linear flows
+**Customer Impact:** Made migrations unusable for jump-between-blocks patterns
+**Solution:** Worked with Microsoft to add flexible "goto" actions to roadmap
+**Business Case:** Without flexibility, customers would rebuild from scratch vs. migrate
+
+### File Copy Action Optimization
+**Problem:** A360 file copy migrating to 50+ lines of PAD code
+**Root Cause:** Behavioral discrepancies - A360 allows file/folder copy with overwrite, PAD only folder copy
+**Solution:** Created reusable subflow function with argument parsing
+- Logic: Check file extension → if no extension (folder) use native PAD → if extension exists, create in temp then move
+
+### Selector Types Migration
+**Problem:** PAD only supports UIA selectors; UiPath supports multiple types (strict, fuzzy, anchor, image, AA)
+**Solution:** Three-tiered selector approach leveraging PAD's sequential testing
+- First: Verbatim from source tool
+- Second: Removed class attributes, kept top/bottom UI elements
+- Third: Only target element as fallback
+
+## Microsoft Partnership Technical Details
+
+### Collaboration Patterns
+- **Frequency:** Quarterly engineering touchpoints, sometimes more frequent
+- **Roadmap:** Microsoft planning less agile than expected (6-12 month commitments)
+- **Market Insights:** Microsoft proactively seeks Blueprint's field observations
+- **Customer Reality:** Microsoft's new PAD customers are migration customers, not net-new
+
+### API Development & Integration
+- **Seamless Export:** Blueprint migrations appear directly in users' Power Automate environments
+- **Joint Development:** Collaborative API work to eliminate manual file upload steps
+- **SDK Lag Pattern:** Microsoft SDK often trails behind UI feature releases
+- **Workaround Strategy:** Direct Robin script mapping when SDK unavailable
+
+### Technical Influence Examples
+- **Variable Scoping:** Convinced Microsoft to add native support through business case
+- **GoTo Actions:** Influenced roadmap addition of flexible goto statements
+- **PowerFX Integration:** Ongoing collaboration on expression language support
+
+## Service Level Objectives & Monitoring
+
+### Migration Success Metrics
+- **Target:** 75% migration success rate (from SI partner requirements)
+- **Measurement:** Successfully mapped actions ÷ total actions across thousands of processes
+- **Reality:** Low-80s overall (90% simple processes, 60-70% complex)
+- **Validation:** Nightly CI/CD testing with benchmark processes from all supported RPA tools
+
+### Response Time Commitments
+- **Customer Tickets:** 24-hour response on weekdays
+- **Global Grace Period:** Time zone accommodation within 24-hour window
+- **Escalation:** Surface tech support → Sean for technical migration questions
+
+### Blueprint Assess Monitoring System
+- **Real-time Integration:** Power Automate API telemetry capture within seconds of bot execution
+- **Data Points:** Runtime, errors, error details, CPU usage, average queue item duration
+- **Anomaly Detection:** 3+ standard deviations from configurable time period means (week/month/quarter/year)
+- **Alert System:** Email notifications for specific workflow subscribers
+
+## Platform Reliability Strategies
+
+### Dual-Track System
+- **Standard Releases:** 6-week cycles with 2-week sprints (3 sprints per release)
+- **Experimental Daily Builds:** For urgent customer needs outside release cycles
+- **Trade-offs Managed:** Customer deadlines vs. operational complexity and migration overhead
+
+### Failure Isolation & Graceful Degradation
+- **Service Independence:** Import service issues don't affect existing process functionality
+- **Alternative Pathways:** Solution file export backup when Microsoft API unavailable
+- **User Productivity:** Multiple export options maintain workflow during service outages
+
+### Testing & Support Complexity
+- **On-Premise Testing:** Historically 7+ Windows Server/SQL combinations
+- **Current Strategy:** Risk analysis on new versions, periodic testing (twice yearly)
+- **Customer Environment Alignment:** Infrastructure mirrors customer setups
+- **Cloud vs On-Premise Support:** Cloud enables remote troubleshooting; on-premise requires customer log files
+
+## Deployment Methods
+- **AWS:** Jenkins using installation process similar to on-premise
+- **Rackspace:** Ansible (bypasses first 3 installer phases for speed)
+- **Update Strategy:** Ansible updates near RTM when development mostly complete
+
+## Quick Reference: Technical Terms & Clarifications
+
+### APIs vs Microservices vs Services
+- **APIs:** Communication method only (like phone calls)
+- **Microservices:** Independent workers that do actual processing
+- **Services:** Broader term for system components that perform specific functions
+
+### CRUD Operations
+- **Create:** Make something new
+- **Read:** Get/fetch existing information  
+- **Update:** Change existing information
+- **Delete:** Remove something
+
+### Client-Server Pattern Example
+- Client (League client) → API request → Settings API
+- API triggers microservice → validates/processes → stores in database
+- Database only accessed by microservice, never directly by client
