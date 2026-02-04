@@ -1,0 +1,20 @@
+# Blueprint Context Index
+
+## Purpose
+Entry point for Blueprint project context. Read this first, then load relevant documents based on conversation topic.
+
+## Prerequisites (Always Load)
+1. `Company_Overview.md` - Products, business model, team
+2. `Sean_Role_Context.md` - Role, stakeholders, working preferences
+
+## Optional Documents
+
+| Document | Load When |
+|----------|-----------|
+| `TES_Hiring.md` | Interviewing for Technical Enablement Specialist |
+| `GTM_Hiring.md` | Interviewing for GTM/marketing role |
+| `Interview_Practices.md` | Preparing for any interview |
+| `Candidate_Evaluations.md` | Referencing past candidates or writing feedback |
+| `Migration_Challenges.md` | Technical migration issues, 4-bucket system |
+| `Product_Backlog.md` | Roadmap, prioritization, features |
+| `Technical_Architecture.md` | Deep technical context on Blueprint systems |
