@@ -20,7 +20,7 @@ Example:
 **Question:** "Write a one-liner for an SI evaluating Blueprint vs. rebuilding manually. Think out loud."
 **Follow-up:** "SI pushes back: 'automated migration sounds great, but I don't trust output quality - we'd spend just as long fixing issues.' How do you respond?"
 
-## What Good Looks Like
+## Example of What Good Looks Like
 **Weak:** "Blueprint helps you migrate faster, saving time and cost."
 **Strong:** "Your SI team quotes 18 months to rebuild 2,000 bots manually. Blueprint gets you 80% there in weeks - developers finish the last 20% instead of starting from zero."
 
