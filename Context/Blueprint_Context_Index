@@ -7,14 +7,33 @@ Entry point for Blueprint project context. Read this first, then load relevant d
 1. `Company_Overview.md` - Products, business model, team
 2. `Sean_Role_Context.md` - Role, stakeholders, working preferences
 
-## Optional Documents
+## Document Directory
 
+### Technical/
+| Document | Load When |
+|----------|-----------|
+| `4_Bucket_System.md` | Troubleshooting migration issues, customer escalations, categorizing reported problems |
+| `Platform_Architecture.md` | Infrastructure questions, deployment decisions, COM architecture, system design |
+| `Technical_Challenges.md` | Variable scoping, workflow linearity, platform gaps, major migration blockers |
+
+### Partnerships/
+| Document | Load When |
+|----------|-----------|
+| `Microsoft_Partnership.md` | Microsoft collaboration, API gaps, roadmap influence, SDK limitations |
+| `SI_Challenges.md` | SI partner issues, enablement strategy, skill gaps, motivation problems |
+
+### Hiring/
 | Document | Load When |
 |----------|-----------|
 | `TES_Hiring.md` | Interviewing for Technical Enablement Specialist |
 | `GTM_Hiring.md` | Interviewing for GTM/marketing role |
-| `Interview_Practices.md` | Preparing for any interview |
+| `Interview_Practices.md` | Preparing for any interview, evaluation frameworks |
 | `Candidate_Evaluations.md` | Referencing past candidates or writing feedback |
-| `Migration_Challenges.md` | Technical migration issues, 4-bucket system |
-| `Product_Backlog.md` | Roadmap, prioritization, features |
-| `Technical_Architecture.md` | Deep technical context on Blueprint systems |
+
+## Quick Routing Guide
+**Customer escalation or bug report?** → Load `4_Bucket_System.md`
+**Technical architecture question?** → Load `Platform_Architecture.md`
+**Microsoft API or roadmap discussion?** → Load `Microsoft_Partnership.md`
+**SI partner not engaging properly?** → Load `SI_Challenges.md`
+**Major technical blockers in migration?** → Load `Technical_Challenges.md`
+**Interviewing candidates?** → Load relevant Hiring/ document + `Interview_Practices.md`
