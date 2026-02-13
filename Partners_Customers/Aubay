@@ -1,0 +1,31 @@
+# Aubay
+
+## Key Contacts
+- Marco Marchiaro
+
+## Updates
+
+### 2025-02-13 | Escalation — .NET Scripts, Locking, Excel, Subflows
+
+**Engagement:** Blue Prism → PAD migration (end customer unknown)
+
+**Enablement Status:** Developer enablement sent to full team, nobody has completed it. One person completed business enablement only.
+
+**Support Behavior:** Bypasses support channels — goes directly to CS and Product. Does not investigate source processes before escalating. Reports issues with confidence that turn out to be incorrect.
+
+**Competency Assessment:**
+- Blue Prism: Low. Unfamiliar with own VBO code and process structures.
+- PAD: Low. Confusion around variable scoping, argument passing, .NET script configuration.
+- Programming fundamentals: Low. Struggled with caller vs. called flow input variables.
+- Investigation rigor: Very low. Does not follow TODO instructions or verify source behavior before reporting.
+
+**Issues Raised:**
+- Global Code variable in .NET scripts not working → Bucket 2/4. Code migrated 1:1. Likely caused by empty DLL references (TODO not followed).
+- Macro .NET script not working → Bucket 2/4. Same root cause. Source code confirmed identical to Blue Prism.
+- Excel read-only mode → Under investigation. Source Open Workbook has no ReadOnly parameter. Potential Bucket 3.
+- Browser attach/detach unnecessary in PAD → Valid observation. Asked customer to confirm desired scope of removal.
+- Acquire Lock TODO comments and verbose locking code → Locking deeply embedded in control flow. Unsafe for Blueprint to remove programmatically. Post-migration SI responsibility.
+- Log block cycle dependency and variable deletion errors → Bucket 4. Customer deleted variables referenced elsewhere in caller flow, attributed resulting errors to Blueprint.
+- Missing subflows (_Crea Nuovo Item, _Verifica Precondizioni) → Bucket 2. Stages disconnected in source Blue Prism process. Customer reported as Blueprint export failure.
+
+**Summary:** 6-8 hours of Product time spent investigating. Nearly all issues were Bucket 2/4. Customer stated with confidence that Blueprint was incorrect on multiple items where their own source process was the root cause. Escalation to Martin planned for leadership sync to discuss support model sustainability.
