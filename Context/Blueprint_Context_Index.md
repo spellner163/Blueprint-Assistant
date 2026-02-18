@@ -46,11 +46,19 @@ Entry point for Blueprint project context. Read this first, then load relevant d
 
 ## Quick Routing Guide
 **Customer escalation or bug report?** → Load `4_Bucket_System.md` + relevant `Partners_Customers/` file if customer is known
+
 **Technical architecture question?** → Load `Platform_Architecture.md`
+
 **Microsoft API or roadmap discussion?** → Load `Microsoft_Partnership.md`
+
 **SI partner not engaging properly?** → Load `SI_Challenges.md` + relevant `Partners_Customers/` file
+
 **Major technical blockers in migration?** → Load `Technical_Challenges.md`
+
 **ALC strategy, PMF, Blueprint Control discussion?** → Load `ALC_Strategy_and_PMF.md`
+
 **AI competitive threat or long-term product defensibility?** → Load `AI_Competitive_Risk.md`
+
 **Interviewing candidates?** → Load relevant Hiring/ document + `Interview_Practices.md`
+
 **Discussion about a specific customer/SI?** → Load their `Partners_Customers/` file for history and context
