@@ -1,8 +1,8 @@
 # ALC Strategy and Product-Market Fit
 
 ## What We Know
-- Zero churn in two years — every customer who purchased ALC has renewed. Genuine signal.
-- ALC has only ever been sold during or alongside a Migrator engagement. No standalone sales exist.
+- Zero churn in two years — every customer who purchased ALC has renewed. Genuine signal. Caveat - Very few customers
+- Almost all ALC sales have been during or alongside a Migrator engagement. Barely any standalone sales exist.
 - Post-migration, customers keep ALC to manage and understand their evolving PAD estate — legs exist outside migration, but the entry point has always been migration.
 - Most heavily used features: auto-documentation, structure diagrams, application analysis (migration-adjacent utility).
 - Least used features: opportunity analysis, testing, collaborative reviews (higher value, require more organizational maturity).
