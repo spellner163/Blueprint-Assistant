@@ -30,6 +30,12 @@ Entry point for Blueprint project context. Read this first, then load relevant d
 
 **Structure:** One file per customer/SI partner. Static context (contacts, platform, enablement status, competency assessment) at the top. Timestamped updates in reverse chronological order below. Load the relevant customer file whenever a specific customer or SI is mentioned by name, or when discussing a customer escalation that may have prior history.
 
+### Products/
+| Document | Load When |
+|----------|-----------|
+| `ALC_Strategy_and_PMF.md` | Any discussion about ALC/Blueprint Control strategy, product-market fit, the early adopter program, Martin's Blueprint Control deck, ICP/pricing, ARR projections, or the standalone GTM question |
+| `AI_Competitive_Risk.md` | Any discussion about AI as a competitive threat to Blueprint, AI's impact on RPA migration or lifecycle management, or long-term product defensibility |
+
 ### Hiring/
 | Document | Load When |
 |----------|-----------|
@@ -44,5 +50,7 @@ Entry point for Blueprint project context. Read this first, then load relevant d
 **Microsoft API or roadmap discussion?** → Load `Microsoft_Partnership.md`
 **SI partner not engaging properly?** → Load `SI_Challenges.md` + relevant `Partners_Customers/` file
 **Major technical blockers in migration?** → Load `Technical_Challenges.md`
+**ALC strategy, PMF, Blueprint Control discussion?** → Load `ALC_Strategy_and_PMF.md`
+**AI competitive threat or long-term product defensibility?** → Load `AI_Competitive_Risk.md`
 **Interviewing candidates?** → Load relevant Hiring/ document + `Interview_Practices.md`
 **Discussion about a specific customer/SI?** → Load their `Partners_Customers/` file for history and context
