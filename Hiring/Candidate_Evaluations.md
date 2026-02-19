@@ -20,7 +20,7 @@ Rachel Stones, Cori Finnegan, Annika Anderson — all withdrew, did not intervie
 |-----------|-----------|
 | Lauren Fulton | Advance |
 | Michelle DeMuth | Advance |
-| Michelle S. | Interview scheduled next week |
+| Michelle S. | Advance |
 | Daniela F. | Closed |
 | Bhanu | Closed |
 | Teena Joy | Closed |
