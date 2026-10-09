@@ -1,6 +1,10 @@
 {
   "extraKnownMarketplaces": {
-    "i-have-adhd": { "source": { "source": "github", "repo": "ayghri/i-have-adhd" } }
+    "i-have-adhd": { "source": { "source": "github", "repo": "ayghri/i-have-adhd" } },
+    "typesafe-ai": { "source": { "source": "github", "repo": "typesafe-ai/skills" } }
   },
-  "enabledPlugins": { "i-have-adhd@i-have-adhd": true }
+  "enabledPlugins": {
+    "i-have-adhd@i-have-adhd": true,
+    "typesafe@typesafe-ai": true
+  }
 }
