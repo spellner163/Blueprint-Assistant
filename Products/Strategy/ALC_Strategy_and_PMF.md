@@ -1,5 +1,13 @@
 # ALC Strategy and Product-Market Fit
 
+> **Update 2026-10-09 — read the body below with these corrections (source: `Product_Roadmap.md`, `Company_Overview.md`):**
+> - **Naming:** ALC / Blueprint Control are now the Maintain and Monitor use cases of the single Blueprint platform.
+> - **Pricing superseded:** The $45-55K/year ALC price used throughout is gone. FY2027 pricing is $5,000/month, $50,000/year or $140,000/3-year for the complete platform. The Ferrari and ICP/pricing analysis below was written against the old price.
+> - **Sales model superseded:** The free-PoC and $0 early-adopter approach is replaced by "Start with Blueprint for $5,000, cancel anytime," so customers are paying from Day 1. The early adopter target (5-10 customers at $0 before June 2026) has passed, and no result is recorded in this repo. **Open item: ask Sean for the outcome.**
+> - **GTM hire:** A marketing hire has been made. Martin still handles sales himself, and there is no separate sales team. Hiring is closed for now, so "prioritize the GTM hire" is no longer a live next step.
+> - **Identity contradiction:** The single-platform decision resolves it by design. Migration is folded under Modernize rather than sold as a separate product.
+> - **Still open:** Whether Maintain/Monitor creates urgency outside a migration cycle. The ARR projection (25 customers in FY2027) has not been re-checked against the new pricing.
+
 ## What We Know
 - Zero churn in two years — every customer who purchased ALC has renewed. Genuine signal. Caveat - Very few customers
 - Almost all ALC sales have been during or alongside a Migrator engagement. Barely any standalone sales exist.

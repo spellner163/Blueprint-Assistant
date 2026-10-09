@@ -1,5 +1,7 @@
 # Interview Practices
 
+> **Status (2026-10-09): Hiring is closed for now.** Reference only; use if hiring reopens.
+
 ## Core Philosophy
 - **Don't lead the witness.** Clear questions deserve clear answers. If they need the question rephrased to get there, that's signal.
 - **Test instincts, not just knowledge.** How they interpret ambiguous questions reveals how they think.

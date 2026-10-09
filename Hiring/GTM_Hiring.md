@@ -1,5 +1,7 @@
 # GTM Lead Hiring
 
+> **Status (2026-10-09): Hiring is closed for now.** Reference only. A marketing hire has been made, so references below to Blueprint having no marketing function are historical.
+
 ## Role
 Build marketing function for ALC product. Lead gen, campaigns, website, content. Blueprint has done zero marketing historically - leads came through Microsoft.
 

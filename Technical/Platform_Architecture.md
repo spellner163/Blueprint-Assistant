@@ -55,11 +55,12 @@ Blueprint uses minimum 3-server distributed architecture (not monolithic or micr
 - **Risk Management:** Memory leaks in untested builds won't impact production
 
 ### Deployment
+- **Hosting model:** Cloud-hosted SaaS is the default. On-prem is available only for sufficiently large deals and is strongly discouraged.
 - **Production rule:** Customer/partner sites always Rackspace
 - **Dev rule:** Pre-release builds on AWS for risk isolation
 - **Tools:** AWS uses Jenkins, Rackspace uses Ansible (faster for updates near RTM)
 
 ## Testing Strategy
 - **Nightly CI/CD:** Benchmark processes from all supported RPA tools
-- **Target Metric:** 75% migration success rate (low-80s actual: 90% simple, 60-70% complex)
+- **Target Metric:** 75% migration success rate (low-80s actual: 90% simple, 60-70% complex). This is an internal benchmark. For customer-facing claims use the approved POV figures: 70–75% less effort, 95–99% of actions converted (`Automated_Migration_POV.md`).
 - **On-Premise Testing:** Risk analysis on new Windows Server/SQL versions, tested ~twice yearly

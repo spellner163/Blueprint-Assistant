@@ -11,10 +11,10 @@ Framework for categorizing migration issues to determine root cause and appropri
 **Customer Positioning:** "Blueprint can't bypass PAD's rules — we ensure your process still runs within those constraints."
 
 **Examples:**
-- PAD treats all variables as global → Blueprint prefixes to avoid collisions (MSFT now supports in more recent SDKs, but requires customers to be up to date on PAD)
+- PAD treats all variables as global → Blueprint prefixes to avoid collisions (MSFT added native local variables, released Jan 2026, but customers must be up to date on PAD)
 - PAD requires XML parent nodes, unlike A360
 - PAD requires browser scope when launching Chrome as application
-- PAD enforces mostly linear workflows vs. non-linear source platforms
+- PAD Go To only works within the same subflow, vs. non-linear source platforms that can jump anywhere
 
 ### 2. Source Code Differences (Customer-Originated)
 **Definition:** Inefficiencies in original bot that get faithfully preserved in migration
@@ -80,3 +80,5 @@ Framework for categorizing migration issues to determine root cause and appropri
 - Bucket 1 issues require Microsoft partnership to resolve
 - Bucket 3 requires investigation before committing to fixes
 - Bucket 4 issues not solvable through product improvements alone
+- Don't default to Buckets 2/4. The UST/Schroders retrospective (`Partners_Customers/Project Retrospectives/UST_Schroders.md`) shows an SI raising legitimate Bucket 3 items: early output that was mostly TODOs and too many .NET scripts, unnecessary steps inserted into migrated output, and performance overhead from redundant open/close operations, filtering and SQL queries. Verify against the source before classifying.
+- The "mover" analogy under Bucket 2 predates the move away from "digital moving company" positioning. It is still usable in escalations, but not in marketing.

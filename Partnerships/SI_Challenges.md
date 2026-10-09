@@ -66,6 +66,8 @@
 
 **Not Target Segment:** SI partners with low motivation/technical depth aren't Blueprint's ideal customer profile
 
-**Success with Motivated Partners:** Strong relationships with Avanade, Hitachi, engaged TCS teams
+**Success with Motivated Partners:** Strong relationships with Avanade, Hitachi, engaged TCS teams. UST on Schroders also ended as an advocate ("It became a friend for us") despite early quality complaints; see `Partners_Customers/Project Retrospectives/UST_Schroders.md`.
+
+**Partner Reality (July 2026 proposal):** Roughly 80% of SI partners fall in the "average" bucket. Support today is free white-glove help that is reactive, because SIs rarely answer outreach. Blueprint cannot see what happens after handoff in PAD. An "embedded delivery expert" role was proposed to close that gap (proposal is in the vault, not this repo).
 
 **Enablement Investment:** Continue building resources, but recognize limits of what training can solve

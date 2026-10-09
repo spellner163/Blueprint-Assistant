@@ -29,12 +29,23 @@
 
 ### GoTo Actions
 - **Problem:** PAD enforced linear workflows, breaking non-linear migrations
-- **Blueprint Impact:** Influenced roadmap addition of flexible goto statements
+- **Blueprint Impact:** Influenced addition of flexible goto statements
+- **Outcome:** Go To now exists in PAD, but only works within the same subflow, and Microsoft's documentation does not say so
 - **Business Case:** Without flexibility, customers rebuild from scratch vs. migrate
 
 ### PowerFX Integration
 - Ongoing collaboration on expression language support
 - Blueprint provides field feedback on integration challenges
+
+## Open Items and Dependencies (as of Oct 2026)
+
+- **Anchor comments:** The Correlator and Migration Agent get a semi-live source-to-PAD link only once Microsoft adds anchor comments. Timing is Microsoft's (`Research/Correlator.md`, `Migration_Agent_POV.md`).
+- **Unlimited migrate license:** The FY2027 pivot document says Microsoft may buy an unlimited migrate license from Blueprint "in the next few weeks." This is pending and unconfirmed. It is one reason Blueprint is stepping back from being "the migration company."
+- **Year-one subsidy:** Microsoft offered to subsidize year one for joint customers. Migration capacity may also be available through a Microsoft engagement (`Company_Overview.md`).
+- **Agents calling subflows:** Microsoft plans to let Copilot agents call subflows directly, which would remove the need for Blueprint to extract them (`Agents_and_RPA_POV.md`).
+- **Documentation gap:** Robin, PAD's underlying language, has had no official reference since 2021.
+- **Market position:** Microsoft is a Leader in the 2026 Gartner RPA Magic Quadrant, but large organizations mostly use it as a secondary RPA tool (`2026-RPA-Magic-Quadrant-Digest.md`).
+- **Native governance risk:** Microsoft building PAD governance itself is the main competitive threat (`AI_Competitive_Risk.md`).
 
 ## Partnership Value Exchange
 

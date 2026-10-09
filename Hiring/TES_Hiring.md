@@ -1,5 +1,7 @@
 # Technical Enablement Specialist Hiring
 
+> **Status (2026-10-09): Hiring is closed for now.** Reference only; use if hiring reopens.
+
 ## Role
 Bridge gap between non-technical CS team and Product. Lead live training, create enablement content, handle moderately technical customer questions without escalation.
 

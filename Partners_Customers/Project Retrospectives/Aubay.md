@@ -1,5 +1,7 @@
 # Aubay
 
+> **Status:** Moved to Project Retrospectives 2026-09-24. The last logged update is 2025-02-13, mid-escalation, with no resolution recorded. Confirm current status with Sean if Aubay resurfaces.
+
 ## Key Contacts
 - Marco Marchiaro
 

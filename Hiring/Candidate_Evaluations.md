@@ -1,5 +1,7 @@
 # Candidate Evaluations
 
+> **Status (2026-10-09): Hiring is closed for now.** Reference only; use if hiring reopens.
+
 ## TES Candidates
 
 | Candidate | Grade | Recommendation | Key Notes |
